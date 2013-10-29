@@ -1,0 +1,27 @@
+{
+  "name": "qcumberbatch",
+  "version": "0.0.0",
+  "description": "Integration wrapper between qcumber and webdriverjs.",
+  "main": "src/lib/qcumberbatch.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "qcuber",
+    "cucumberjs",
+    "cucumber",
+    "integration",
+    "testing",
+    "webdriver",
+    "selenium"
+  ],
+  "author": "David Souther <davidsouther@gmail.com>",
+  "license": "BSD-2-Clause",
+  "devDependencies": {
+    "coffee-script": "~1.6.3",
+    "grunt-recurse": "~0.1.0",
+    "grunt-selenium-launcher": "~0.1.1",
+    "grunt-cucumber": "~0.2.3",
+    "grunt": "~0.4.1"
+  }
+}
