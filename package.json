@@ -23,5 +23,10 @@
     "grunt-selenium-launcher": "~0.1.1",
     "grunt-cucumber": "~0.2.3",
     "grunt": "~0.4.1"
+  },
+  "dependencies": {
+    "q": "~0.9.7",
+    "should": "~2.0.2",
+    "qcumber": "~0.1.0"
   }
 }
