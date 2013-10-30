@@ -43,16 +43,16 @@ module.exports = ->
     ###
     Check for existance of a string in the title
     ###
-    @Then /should see "([^"]*)" in the title$/, (what) ->
+    @Then /should see "([^"]*)" in the title/, (what) ->
         @world.title()
         .then (text)->
             text.indexOf(what).should.be.greaterThan -1,
-                "'#{what}' expected in title"
+               "'#{what}' expected in title (#{text})"
 
     ###
     Check for existance of a string in a selector
     ###
-    @Then /should see "([^"]*)" in (?:the )"([^"]*)"$/, (what, where) ->
+    @Then /should see "([^"]*)" in (?:the )"([^"]*)"/, (what, where) ->
         @world.text(where)
         .then (text)->
             text.indexOf(what).should.be.greaterThan -1,
