@@ -1,7 +1,14 @@
 {
   "name": "qcumberbatch",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Integration wrapper between qcumber and webdriverjs.",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:DavidSouther/qcumberbatch.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DavidSouther/qcumberbatch/issues"
+  },
   "main": "src/lib/qcumberbatch.js",
   "scripts": {
     "test": "grunt test"
