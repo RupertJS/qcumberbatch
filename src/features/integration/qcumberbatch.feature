@@ -7,3 +7,9 @@ Feature: Webdriver stack
         Given I have my browser open
         When I go to the site
         Then I should see "qcumberbatch" in the title
+
+    Scenario: Open Second
+        Given I have my browser open
+
+    Scenario: Open Third
+        Given I have my browser open
