@@ -11,5 +11,17 @@ module.exports = (grunt)->
     grunt.initConfig grunt.Config
     grunt.loadNpmTasks task for task in grunt.NpmTasks
 
-    grunt.registerTask 'test', ['integration']
+    grunt.registerTask 'serve', ->
+        http = require('http').createServer()
+        http.on 'request', (req, res)->
+            res.writeHead(200, { 'Content-Type': 'text/html'})
+            res.write '''<html>
+                <head><title>qcumberbatch</title></head>
+                <body></body>
+                </html>
+            '''
+            res.end()
+        http.listen 3000
+
+    grunt.registerTask 'test', ['serve', 'integration']
     grunt.registerTask 'default', ['test']
