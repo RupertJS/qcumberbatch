@@ -1,11 +1,10 @@
 World = require "../support/worlds"
 module.exports = ->
-    require('qcumber')(@)
-
-    @Before (done)=>
-        # opening a browser is like entering a whole new world...
-        @world = World.get()
-        done()
+    @world = World.get()
 
     @After (done)=>
-        @world?.destroy().then(done)
+        @world.visit('about:blank').then(done)
+
+    process.on 'exit', ->
+        @world?.destroy()
+        console.log 'Destroying world'
