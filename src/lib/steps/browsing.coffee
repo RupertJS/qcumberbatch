@@ -15,7 +15,7 @@ module.exports = ->
     ###
     Navigate the browser to a given URL.
     ###
-    @When /browses to "([^"]*)" url/, (url)->
+    @When /browse(?:s)? to "([^"]*)"/, (url)->
         @world.visit(url)
 
     ###

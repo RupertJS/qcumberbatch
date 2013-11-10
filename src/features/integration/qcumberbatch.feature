@@ -17,5 +17,5 @@ Feature: Webdriver stack
     Scenario: Resize
         Given I have my browser open
         And it is resized to (1024x768)
-        When I go to "http://google.com"
+        When I browse to "http://google.com"
         Then the window should be (1024x768)
