@@ -9,6 +9,9 @@ module.exports = ->
     @Given /(?:on|go(?:es)? to|visits?) the (?:site|landing page)(?: directly)?/, ->
         @world.visit(process.env.APP_ROOT || "http://localhost:3000/")
 
+    @Given /resized to \((\d+x\d+)\)/, (width, height)->
+        @world.resize(width, height)
+
     ###
     Navigate the browser to a given URL.
     ###
