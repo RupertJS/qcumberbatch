@@ -45,6 +45,11 @@ module.exports = ->
         Q.all([@world.fill(field, line, true) for line in lines.split '\n'])
 
 
+    @Then /window should be \((\d+)x(\d+)\)/, (width, height)->
+        @world.getWindowSize().then (size)->
+            size.width.should.equal parseInt width
+            size.height.should.equal parseInt height
+
     ###
     Check for existance of a string in the title
     ###

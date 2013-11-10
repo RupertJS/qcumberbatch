@@ -21,6 +21,9 @@ module.exports = class World
     resize: (width, height)->
         Q @driver.manage().window().setSize(width, height)
 
+    getWindowSize: ->
+        Q @driver.manage().window().getSize()
+
     find: (selector)->
         @driver.findElement By.css selector
 
