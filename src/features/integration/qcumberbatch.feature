@@ -13,3 +13,9 @@ Feature: Webdriver stack
 
     Scenario: Open Third
         Given I have my browser open
+
+    Scenario: Resize
+        Given I have my browser open
+        And it is resized to (1024x768)
+        When I go to "http://google.com"
+        Then the window should be (1024x768)
