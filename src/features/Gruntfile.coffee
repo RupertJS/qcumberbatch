@@ -6,6 +6,7 @@ module.exports = (grunt)->
                     src: ['src/features/integration/*']
             options:
                 steps: 'src/features/integration/steps'
+                tags: '~@ShouldFail'
 
     grunt.NpmTasks = [
         'grunt-cucumber'
