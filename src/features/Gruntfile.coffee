@@ -4,9 +4,15 @@ module.exports = (grunt)->
             qcumberbatch:
                 files:
                     src: ['src/features/integration/*']
+                options:
+                    tags: '~@ShouldFail'
+            failing:
+                files:
+                    src: ['src/features/integration/*']
+                options:
+                    tags: '@ShouldFail'
             options:
                 steps: 'src/features/integration/steps'
-                tags: '~@ShouldFail'
 
     grunt.NpmTasks = [
         'grunt-cucumber'
@@ -16,4 +22,9 @@ module.exports = (grunt)->
     grunt.registerTask 'integration', [
         'selenium-launch'
         'cucumberjs:qcumberbatch'
+    ]
+
+    grunt.registerTask 'failing', [
+        'selenium-launch'
+        'cucumberjs:failingg'
     ]
