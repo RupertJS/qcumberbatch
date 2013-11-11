@@ -25,3 +25,10 @@ Feature: Webdriver stack
         And it is resized to (1024x768)
         When I browse to "http://en.wikipedia.org/w/index.php?title=Puffinus&oldid=553788156"
         Then the page should look like [./src/features/integration/screenshots/puffinus.png]
+
+    @ShouldFail
+    Scenario: Image Difference
+        Given I have my browser open
+        And it is resized to (1024x768)
+        When I browse to "http://google.com"
+        Then the page should look like [./src/features/integration/screenshots/puffinus.png]
