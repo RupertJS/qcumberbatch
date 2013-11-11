@@ -24,6 +24,8 @@ module.exports = class World
     getWindowSize: ->
         Q @driver.manage().window().getSize()
 
+    screenshot: require './screenshot'
+
     find: (selector)->
         @driver.findElement By.css selector
 
