@@ -22,6 +22,6 @@ Feature: Webdriver stack
 
     Scenario: Image Comparison
         Given I have my browser open
-        And it is resized to (1025x768)
+        And it is resized to (1024x768)
         When I browse to "http://en.wikipedia.org/w/index.php?title=Puffinus&oldid=553788156"
         Then the page should look like [./src/features/integration/screenshots/puffinus.png]
