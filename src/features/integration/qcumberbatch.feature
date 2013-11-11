@@ -24,4 +24,4 @@ Feature: Webdriver stack
         Given I have my browser open
         And it is resized to (1025x768)
         When I browse to "http://en.wikipedia.org/w/index.php?title=Puffinus&oldid=553788156"
-        Then the page should look like [./puffinus.png]
+        Then the page should look like [./src/features/integration/screenshots/puffinus.png]
