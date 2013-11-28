@@ -24,18 +24,32 @@ module.exports = (grunt)->
         http.listen 3000
 
     grunt.registerTask 'documentation', do ->
+        ###
+        Here through CB are a variety of regexes to pull out from the code
+
+        ```
+        Navigate the browser to a given URL.
+        \#\#\#
+        @When /browse(?:s)? to "([^"]*)"/, (url)->
+        ```
+        ###
+
+        # Then ending ### in a comment
         Comment = '\\s+###\\n'
+        # Group but ignore the @ possibilities.
         WGT = '(?:When|Given|Then)'
+        # Whitespace before the @
         WS = "\\n?\\s*\\n?"
+        # The step definition itself.
         StepMatch = "@(#{WGT}.*->).*"
 
         CommentBlocks = ///
-            (?:\s+([^\n]*)\n
+            (?:\s+([^\n]*)\n # Possibly missing the comment; keep the text.
             #{Comment})? #{WS}
-            (#{StepMatch})
+            (#{StepMatch}) # The actual step regex and fn params.
         ///g
         CB = (block)->
-            CommentBlocks.lastIndex = 0
+            CommentBlocks.lastIndex = 0 # The Regex is /g, so reset.
             CommentBlocks.exec block
 
         fileShortName = (filename)->
@@ -46,10 +60,15 @@ module.exports = (grunt)->
             dir: Path.join '.', 'docs'
         defaults.target = Path.join defaults.dir, 'docs.json'
 
-        ->
-            files = grunt.file.expand defaults.fileExpand
+        -> # The actual task function
             projectDocs = {}
+            files = grunt.file.expand defaults.fileExpand
 
+            ###
+            Look through a file, building a two-deep array of all step defns,
+            each with two entries for comment and defn. Put the files with steps
+            directly in to the projectDocs.
+            ###
             grep = (filename)->
                 contents = grunt.file.read filename
                 blocks = contents.match CommentBlocks
@@ -59,12 +78,12 @@ module.exports = (grunt)->
                     block = CB block
                     block = [block[1] || "(No Docs)", block[3]]
 
+            # Populate the projectDocs.
             files.forEach grep
 
-            docsJson = JSON.stringify projectDocs, null, 4
-            grunt.verbose.ok docsJson
-
+            # Save docs to disk
             grunt.log.write "Saving docs JSON in #{defaults.target}... "
+            docsJson = JSON.stringify projectDocs, null, 4
             grunt.file.write defaults.target, docsJson
             grunt.log.ok()
 
