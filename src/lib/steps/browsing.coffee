@@ -4,7 +4,7 @@ should = require "should"
 module.exports = ->
     require('qcumber')(@)
 
-    @Given /(?:has|have) (?:his|her|a|my) browser open$/, -> true
+    @Given /(?:has|have) (?:his|her|a|my) browser open/, -> true
 
     @Given /(?:on|go(?:es)? to|visits?) the (?:site|landing page)(?: directly)?/, ->
         @world.visit(process.env.APP_ROOT || "http://localhost:3000/")
