@@ -5,6 +5,5 @@ module.exports = ->
     @After (done)=>
         @world.visit('about:blank').then(done)
 
-    process.on 'exit', ->
-        @world?.destroy()
-        console.log 'Destroying world'
+    @registerHandler 'AfterFeatures', (event, done)=>
+        @world?.destroy().then(done)
