@@ -4,11 +4,21 @@ should = require "should"
 module.exports = ->
     require('qcumber')(@)
 
-    @Given /(?:has|have) (?:his|her|a|my) browser open$/, -> true
+    ###
+    Default Given task, simply confirms the world setup was completed.
+    ###
+    @Given /(?:has|have) (?:his|her|a|my) browser open/, -> true
 
+    ###
+    Direct the browser to the SuT, either process.env.APP_ROOT or
+    `http://localhost:3000`.
+    ###
     @Given /(?:on|go(?:es)? to|visits?) the (?:site|landing page)(?: directly)?/, ->
         @world.visit(process.env.APP_ROOT || "http://localhost:3000/")
 
+    ###
+    Force the browser to adopt a certen width and height.
+    ###
     @Given /resized to \((\d+)x(\d+)\)/, (width, height)->
         width = parseInt(width)
         height = parseInt(height)

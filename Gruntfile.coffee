@@ -23,5 +23,7 @@ module.exports = (grunt)->
             res.end()
         http.listen 3000
 
+    grunt.loadTasks 'src/tasks'
+
     grunt.registerTask 'test', ['serve', 'integration']
-    grunt.registerTask 'default', ['test']
+    grunt.registerTask 'default', ['test', 'documentation']

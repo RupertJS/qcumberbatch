@@ -1,0 +1,66 @@
+{
+    "browsing": [
+        [
+            "Default Given task, simply confirms the world setup was completed.",
+            "Given /(?:has|have) (?:his|her|a|my) browser open/, ->"
+        ],
+        [
+            "(No Docs)",
+            "Given /(?:on|go(?:es)? to|visits?) the (?:site|landing page)(?: directly)?/, ->"
+        ],
+        [
+            "Force the browser to adopt a certen width and height.",
+            "Given /resized to \\((\\d+)x(\\d+)\\)/, (width, height)->"
+        ],
+        [
+            "Navigate the browser to a given URL.",
+            "When /browse(?:s)? to \"([^\"]*)\"/, (url)->"
+        ],
+        [
+            "Navigate the browser away from the current page.",
+            "When /leaves the page/, ->"
+        ],
+        [
+            "Send some value to an input, without triggering further processing.",
+            "When /types \"([^\"]+)\" into (?:the|a) \"([^\"]+)\" (?:box|input|field)/, (value, field)->"
+        ],
+        [
+            "Send some value to an input, and submit its form.",
+            "When /enters \"([^\"]+)\" into (?:the|a) \"([^\"]+)\" (?:box|input|field)/, (value, field)->"
+        ],
+        [
+            "Send many values to one input, submitting its form each time.",
+            "When /enters into (?:the|a) \"([^\"]+)\" (?:box|input|field)/, (field, lines)->"
+        ],
+        [
+            "(No Docs)",
+            "Then /window should be \\((\\d+)x(\\d+)\\)/, (width, height)->"
+        ],
+        [
+            "Check for existance of a string in the title",
+            "Then /should see \"([^\"]*)\" in the title/, (what) ->"
+        ],
+        [
+            "Check for existance of a string in a selector",
+            "Then /should see \"([^\"]*)\" in (?:the )\"([^\"]*)\"/, (what, where) ->"
+        ],
+        [
+            "Check for reasonable placeholder value",
+            "Then /invited to enter a(?:n)? \"([^\"]*)\" in the \"([^\"]*)\" (?:box|input|field)/, (value, where)->"
+        ],
+        [
+            "Check for content somewhere in the body.",
+            "Then /page shows \"([^\"]+)\"/, (content)->"
+        ],
+        [
+            "Ensure lack of content in the body.",
+            "Then /page does not show \"([^\"]+)\"/, (content)->"
+        ]
+    ],
+    "screenshots": [
+        [
+            "(No Docs)",
+            "Then /page should look like \\[([^\\]]+)\\]/, (path)->"
+        ]
+    ]
+}
