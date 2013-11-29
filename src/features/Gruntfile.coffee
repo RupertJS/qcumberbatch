@@ -22,9 +22,11 @@ module.exports = (grunt)->
     grunt.registerTask 'integration', [
         'selenium-launch'
         'cucumberjs:qcumberbatch'
+        'selenium-kill'
     ]
 
     grunt.registerTask 'failing', [
         'selenium-launch'
-        'cucumberjs:failingg'
+        'cucumberjs:failing'
+        'selenium-kill'
     ]
