@@ -29,7 +29,8 @@
     "grunt-recurse": "~0.1.0",
     "grunt-selenium-launcher": "~0.1.1",
     "grunt-cucumber": "~0.2.3",
-    "grunt": "~0.4.1"
+    "grunt": "~0.4.1",
+    "selenium-webdriver": "~2.37.0"
   },
   "dependencies": {
     "q": "~0.9.7",
