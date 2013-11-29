@@ -44,10 +44,14 @@ module.exports = (grunt)->
         StepMatch = "@(#{WGT}.*->).*"
 
         CommentBlocks = ///
-            (?:\s+([^\n]*)\n # Possibly missing the comment; keep the text.
-            #{Comment})? #{WS}
-            (#{StepMatch}) # The actual step regex and fn params.
-        ///g
+            (?:
+                #{Comment}
+                (.*\n)
+                #{Comment}
+            )? # Possibly missing the comment; keep the text.
+            #{WS}
+            #{StepMatch} # The actual step regex and fn params.
+        ///gm
         CB = (block)->
             CommentBlocks.lastIndex = 0 # The Regex is /g, so reset.
             CommentBlocks.exec block
@@ -71,12 +75,19 @@ module.exports = (grunt)->
             ###
             grep = (filename)->
                 contents = grunt.file.read filename
-                blocks = contents.match CommentBlocks
 
+                grunt.verbose.write "Looking for docs in #{filename}... "
+
+                blocks = contents.match CommentBlocks
                 projectDocs[fileShortName(filename)] =
-                blocks?.map (block)->
-                    block = CB block
-                    block = [block[1] || "(No Docs)", block[3]]
+                    blocks?.map (block)->
+                        block = CB block
+                        block = [
+                            block[1]?.trim() || "(No Docs)",
+                            block[2].trim()
+                        ]
+
+                grunt.verbose.ok()
 
             # Populate the projectDocs.
             files.forEach grep
