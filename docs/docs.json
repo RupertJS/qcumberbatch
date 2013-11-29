@@ -1,7 +1,7 @@
 {
     "browsing": [
         [
-            "(No Docs)",
+            "Default Given task, simply confirms the world setup was completed.",
             "Given /(?:has|have) (?:his|her|a|my) browser open/, ->"
         ],
         [
@@ -9,7 +9,7 @@
             "Given /(?:on|go(?:es)? to|visits?) the (?:site|landing page)(?: directly)?/, ->"
         ],
         [
-            "(No Docs)",
+            "Force the browser to adopt a certen width and height.",
             "Given /resized to \\((\\d+)x(\\d+)\\)/, (width, height)->"
         ],
         [

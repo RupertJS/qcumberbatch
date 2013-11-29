@@ -20,7 +20,7 @@ module.exports = ->
             Given I have my browser open
             And it is resized to (1024x768)
             When I browse to "http://en.wikipedia.org/w/index.php?title=Puffinus&oldid=553788156"
-            Then the page should look like [./src/features/integration/screenshots/puffinus.png]        Given the user has a browser open
+            Then the page should look like [./src/features/integration/screenshots/puffinus.png]
         ```
 
     @global {float} process.env.THRESHOLD percentage map to statistically match
