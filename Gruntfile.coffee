@@ -1,4 +1,6 @@
 Path = require 'path'
+spawn = require('child_process').spawn
+
 module.exports = (grunt)->
     require('grunt-recurse')(grunt, __dirname)
 
@@ -8,12 +10,18 @@ module.exports = (grunt)->
     .map((dir)->Path.join.apply null, dir)
     .map(grunt.grunt)
 
-    grunt.initConfig grunt.Config
-    grunt.loadNpmTasks task for task in grunt.NpmTasks
+    # grunt.Config =
+    grunt.Config =
+        browserstackTunnel:
+            options:
+                accessKey: process.env.BS_ACCESS_KEY
+            devel: {}
+
 
     grunt.registerTask 'serve', ->
         http = require('http').createServer()
         http.on 'request', (req, res)->
+            grunt.verbose.writeln("Request received.")
             res.writeHead(200, { 'Content-Type': 'text/html'})
             res.write '''<html>
                 <head><title>qcumberbatch</title></head>
@@ -24,6 +32,6 @@ module.exports = (grunt)->
         http.listen 3000
 
     grunt.loadTasks 'src/tasks'
-
-    grunt.registerTask 'test', ['serve', 'integration']
     grunt.registerTask 'default', ['test', 'documentation']
+    grunt.registerTask 'test', ['serve', 'browserstackTunnel:devel', 'integration']
+    grunt.finalize();

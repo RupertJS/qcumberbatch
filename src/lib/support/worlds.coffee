@@ -1,7 +1,9 @@
 World = require "./worlds/webdriver"
-world = new World()
+
+world = null
+
 module.exports =
-    get: ->
-        if world.isDestroyed()
-            world = new World()
+    get: (capabilities) ->
+        if !world or world.isDestroyed()
+            world = new World(capabilities)
         return world

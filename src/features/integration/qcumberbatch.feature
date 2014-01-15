@@ -20,6 +20,7 @@ Feature: Webdriver stack
         When I browse to "http://google.com"
         Then the window should be (1024x768)
 
+    @ShouldFail
     Scenario: Image Comparison
         Given I have my browser open
         And it is resized to (1024x768)

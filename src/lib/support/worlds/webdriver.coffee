@@ -12,9 +12,13 @@ module.exports = class World
         list.
     ###
     constructor: (browser="firefox")->
+        if typeof browser is 'string'
+            capabilities = webdriver.Capabilities[browser]()
+        else
+            capabilities = browser
         @driver = new webdriver.Builder().
             usingServer(process.env.SELENIUM_HUB).
-            withCapabilities(webdriver.Capabilities[browser]()).build()
+            withCapabilities(capabilities).build()
 
         @driver.manage().timeouts().setScriptTimeout(10000)
 
