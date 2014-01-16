@@ -6,6 +6,8 @@ module.exports = (grunt)->
     grunt.Config =
         qcumberbatch:
             options:
+                steps: 'src/features/integration/steps'
+                tags: '~@ShouldFail'
                 browserstack:
                     'browserstack.user' : process.env.BS_USER || 'joecranemessina'
                     'browserstack.key' : process.env.BS_ACCESS_KEY
@@ -23,29 +25,24 @@ module.exports = (grunt)->
                     os_version : '7',
                     resolution : '1024x768'
                 ]
-                hub: "http://bsHub"
+                hub: "http://hub.browserstack.com/wd/hub"
 
             local:
                 files:
                     src: ['src/features/integration/*']
                 options:
-                    tags: '~@ShouldFail'
-                    hub: 'http://localHub'
+                    hub: 'http://localhost:4444/wd/hub'
                     matrix: ['firefox']
 
             browserstack:
                 files:
                     src: ['src/features/integration/*']
-                options:
-                    tags: '~@ShouldFail'
 
             failing:
                 files:
                     src: ['src/features/integration/*']
                 options:
                     tags: '@ShouldFail'
-            options:
-                steps: 'src/features/integration/steps'
 
     grunt.NpmTasks = [
         'grunt-cucumber'

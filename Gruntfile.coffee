@@ -32,6 +32,9 @@ module.exports = (grunt)->
         http.listen 3000
 
     grunt.loadTasks 'src/tasks'
-    grunt.registerTask 'default', ['test', 'documentation']
-    grunt.registerTask 'test', ['serve', 'browserstackTunnel:devel', 'integration']
+    grunt.registerTask 'default', ['setup', 'integration', 'documentation']
+    grunt.registerTask 'setup', [
+        'serve',
+        'browserstackTunnel:devel',
+    ]
     grunt.finalize();
