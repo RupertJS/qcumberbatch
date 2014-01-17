@@ -4,6 +4,14 @@ should = require "should"
 module.exports = ->
     require('qcumber')(@)
 
+    # _defineStep = @defineStep
+    # qStep = (regex, cb)->
+    #     _defineStep.call @, regex, (args..., done)->
+    #         console.log "Matched step: #{regex}"
+    #         console.log args.join ' : '
+    #         cb.apply(@, arguments)
+    # @Given = @When = @Then = @defineStep = qStep
+
     ###
     Default Given task, simply confirms the world setup was completed.
     ###

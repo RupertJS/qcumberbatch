@@ -1,5 +1,6 @@
 Q = require "q"
 should = require "should"
+webdriver = require "selenium-webdriver"
 By = webdriver.By
 
 _destroyed = false
@@ -10,7 +11,7 @@ module.exports = class World
     @param {string} browser property name from the `webdriver.Capabilities`
         list.
     ###
-    constructor: (capabilities)->
+    constructor: (capabilities = {browserName: "firefox"})->
         @driver = new webdriver.Builder().
             usingServer(process.env.SELENIUM_HUB).
             withCapabilities(capabilities).build()

@@ -1,7 +1,5 @@
 module.exports = (grunt)->
-
-    bs_hub = "http://bs.hub ... "
-    local_hub = "http:// ... "
+    features = ['src/features/integration/**/*.feature']
 
     grunt.Config =
         qcumberbatch:
@@ -9,7 +7,7 @@ module.exports = (grunt)->
                 steps: 'src/features/integration/steps'
                 tags: '~@ShouldFail'
                 browserstack:
-                    'browserstack.user' : process.env.BS_USER || 'joecranemessina'
+                    'browserstack.user' : process.env.BS_USER
                     'browserstack.key' : process.env.BS_ACCESS_KEY
                     'browserstack.tunnel' : 'true' # This was the secret!
 
@@ -29,18 +27,18 @@ module.exports = (grunt)->
 
             local:
                 files:
-                    src: ['src/features/integration/*']
+                    src: features
                 options:
                     hub: 'http://localhost:4444/wd/hub'
                     matrix: ['firefox']
 
             browserstack:
                 files:
-                    src: ['src/features/integration/*']
+                    src: features
 
             failing:
                 files:
-                    src: ['src/features/integration/*']
+                    src: features
                 options:
                     tags: '@ShouldFail'
 
