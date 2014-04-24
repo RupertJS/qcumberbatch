@@ -70,6 +70,15 @@ module.exports = class World
         @driver.findElement By.css selector
 
     ###
+    Return a list of webelement wrappers for the given CSS.
+
+    @param {string} selector (CSS) to look up.
+    @return {webdriver}
+    ###
+    findAll: (selector)->
+        @driver.findElements By.css selector
+
+    ###
     Self-contained task to check for presence of an id (without selector).
 
     @param {string} id, with no leading.
