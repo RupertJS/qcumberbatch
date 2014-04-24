@@ -25,17 +25,17 @@
   "author": "David Souther <davidsouther@gmail.com>",
   "license": "BSD-2-Clause",
   "devDependencies": {
-    "coffee-script": "~1.6.3",
-    "grunt-recurse": "~0.2.0",
-    "grunt-selenium-launcher": "~0.1.1",
-    "grunt-cucumber": "~0.2.3",
+    "coffee-script": "~1.7.1",
     "grunt": "~0.4.1",
-    "selenium-webdriver": "~2.37.0",
-    "grunt-release": "~0.6.0",
-    "load-grunt-tasks": "~0.2.0"
+    "grunt-cucumber": "~0.2.3",
+    "grunt-recurse": "~0.2.0",
+    "grunt-release": "^0.7.0",
+    "grunt-selenium-launcher": "~0.1.1",
+    "load-grunt-tasks": "~0.2.0",
+    "selenium-webdriver": "~2.37.0"
   },
   "dependencies": {
-    "q": "~0.9.7",
+    "q": "~1.0.0",
     "should": "~2.0.2",
     "qcumber": "~0.1.0",
     "temp": "~0.6.0",
