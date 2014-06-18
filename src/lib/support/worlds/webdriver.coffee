@@ -11,7 +11,7 @@ module.exports = class World
     @param {string} browser property name from the `webdriver.Capabilities`
         list.
     ###
-    constructor: (browser="firefox")->
+    constructor: (browser = process.env.SELENIUM_BROWSER || "firefox")->
         @driver = new webdriver.Builder().
             usingServer(process.env.SELENIUM_HUB).
             withCapabilities(webdriver.Capabilities[browser]()).build()
