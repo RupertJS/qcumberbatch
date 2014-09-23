@@ -1,6 +1,6 @@
 World = require "../support/worlds"
-module.exports = ->
-    @world = World.get()
+module.exports = (config)->
+    @world = World.get(config)
 
     @After (done)=>
         @world.visit('about:blank').then(done)

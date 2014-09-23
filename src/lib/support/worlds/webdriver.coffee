@@ -3,20 +3,52 @@ should = require "should"
 webdriver = require "selenium-webdriver"
 By = webdriver.By
 
+LOCAL_HUB = 'http://localhost:4444/wd/hub'
+
 _destroyed = false
 module.exports = class World
     ###
     Create a new world, assuming firefox capabilities.
 
-    @param {string} browser property name from the `webdriver.Capabilities`
-        list.
+    @param {config} object of options.
     ###
-    constructor: (browser = process.env.SELENIUM_BROWSER || "firefox")->
-        @driver = new webdriver.Builder().
-            usingServer(process.env.SELENIUM_HUB).
-            withCapabilities(webdriver.Capabilities[browser]()).build()
+    constructor: (config)->
+        capabilities = @_buildCapabilities config
 
-        @driver.manage().timeouts().setScriptTimeout(10000)
+        builder = new webdriver.Builder()
+        builder.usingServer(capabilities.hub) if capabilities.hub?
+        builder.withCapabilities(capabilities)
+        @driver = builder.build()
+
+        # Set default timeout
+        if @driver.manage?
+            @driver.manage().timeouts().setScriptTimeout config.timeout or 10000
+
+    _buildCapabilities: (config)->
+        capabilities = config
+        if config.browserstack
+            try
+                webdriver = require 'browserstack-webdriver'
+            catch e
+                console.error 'Asked for browserstack but could not load.'
+            capabilities.hub = 'http://hub.browserstack.com/wd/hub'
+            config['browserstack.user'] or= process.env.BROWSERSTACK_USER
+            config['browserstack.key'] = process.env.BROWSERSTACK_KEY
+            config['browserstack.local'] = yes
+            config['acceptSllCerts'] = yes
+            console.log '\n\nIMPORTANT\n\nPlease ensure local testing is ready.'
+            console.log '\n'
+            console.log "BrowserStackLocal #{config['browserstack.key']}" +
+                " localhost,3000,0 -skipCheck &"
+            # Set up the tunnel
+            # BrowserStackLocal KEY
+            # host1,port1,ssl_flag,host2,port2,ssl_flag -skipCheck
+        else unless config.browser is 'chrome' or config.browser is 'firefox'
+            capabilities = webdriver.Capabilities[config.browser]()
+        else
+            capabilities.hub = process.env.SELENIUM_HUB or LOCAL_HUB
+
+        capabilities
 
     ###
     Provide a URL for the browser to load.

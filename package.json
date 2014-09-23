@@ -31,14 +31,15 @@
     "grunt-recurse": "~0.2.0",
     "grunt-release": "^0.7.0",
     "grunt-selenium-launcher": "~0.1.1",
-    "load-grunt-tasks": "~0.2.0",
-    "selenium-webdriver": "~2.37.0"
+    "load-grunt-tasks": "~0.2.0"
   },
   "dependencies": {
+    "browserstack-webdriver": "^2.41.1",
+    "gm": "~1.13.3",
     "q": "~1.0.0",
-    "should": "~2.0.2",
     "qcumber": "~0.1.0",
-    "temp": "~0.6.0",
-    "gm": "~1.13.3"
+    "selenium-webdriver": "^2.43.0",
+    "should": "~2.0.2",
+    "temp": "~0.6.0"
   }
 }
