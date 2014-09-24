@@ -69,3 +69,6 @@ These have the same meanings as their cucumberjs CLI counterparts.
 * **0.0.3** *2014-04-24* Added `findAll` to world.
 * **0.0.2** *2013-11-29* Documentation release.
 * **0.0.1** *2013-10-30* Initial release; some basic steps, and screenshot handing.
+
+
+[mapmodel]: http://davidsouther.com/#/posts/2014/01/27/cucumber-selenium-mappings-model/
