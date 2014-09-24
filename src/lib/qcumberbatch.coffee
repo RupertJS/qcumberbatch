@@ -1,6 +1,5 @@
 module.exports =
     steps: (config = process.env.CONFIG)->
-        debugger
         if typeof config is 'string'
             try
                 _config = JSON.parse config

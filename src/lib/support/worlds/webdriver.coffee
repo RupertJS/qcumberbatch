@@ -25,6 +25,7 @@ module.exports = class World
             @driver.manage().timeouts().setScriptTimeout config.timeout or 10000
 
     _buildCapabilities: (config)->
+        debugger
         capabilities = config
         if config.browserstack
             try
@@ -43,7 +44,7 @@ module.exports = class World
             # Set up the tunnel
             # BrowserStackLocal KEY
             # host1,port1,ssl_flag,host2,port2,ssl_flag -skipCheck
-        else unless config.browser is 'chrome' or config.browser is 'firefox'
+        else if config.browser in ['chrome', 'firefox']
             capabilities = webdriver.Capabilities[config.browser]()
         else
             capabilities.hub = process.env.SELENIUM_HUB or LOCAL_HUB

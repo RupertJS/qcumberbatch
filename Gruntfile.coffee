@@ -27,5 +27,6 @@ module.exports = (grunt)->
 
     grunt.loadTasks 'src/tasks'
 
+    grunt.registerTask 'browserstack', ['serve', 'cucumber:browserstack']
     grunt.registerTask 'test', ['serve', 'integration']
     grunt.registerTask 'default', ['test', 'documentation']
