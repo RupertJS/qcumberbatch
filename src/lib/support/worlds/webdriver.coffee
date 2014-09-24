@@ -44,10 +44,10 @@ module.exports = class World
             # Set up the tunnel
             # BrowserStackLocal KEY
             # host1,port1,ssl_flag,host2,port2,ssl_flag -skipCheck
-        else if config.browser in ['chrome', 'firefox']
-            capabilities = webdriver.Capabilities[config.browser]()
         else
-            capabilities.hub = process.env.SELENIUM_HUB or LOCAL_HUB
+            capabilities = webdriver.Capabilities[config.browser]()
+            unless config.browser in ['chrome', 'firefox']
+                capabilities.hub = process.env.SELENIUM_HUB or LOCAL_HUB
 
         capabilities
 
