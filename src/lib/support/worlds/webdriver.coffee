@@ -25,7 +25,6 @@ module.exports = class World
             @driver.manage().timeouts().setScriptTimeout config.timeout or 10000
 
     _buildCapabilities: (config)->
-        debugger
         capabilities = config
         if config.browserstack
             try

@@ -33,19 +33,17 @@ module.exports = (grunt)->
             runAll argv, capabilityList, done, options.failHard
 
     runAll = (argv, capabilityList, done, failHard = no)->
-        i = 0
         allPassed = yes
         next = (succeeded)->
             unless succeeded
                 if failHard is yes
-                    done(false)
+                    return done false
                 else
                     allPassed = no
-            if i > capabilityList.length
-                done allPassed
+            if capability = capabilityList.pop()
+                runCucumber argv, capability, next
             else
-                runCucumber argv, capabilityList[i], next
-                i++
+                done allPassed
         next(yes)
 
     runCucumber = (argv, capabilities, callback)->

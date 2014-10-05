@@ -64,6 +64,8 @@ Default: `""`
 These have the same meanings as their cucumberjs CLI counterparts.
 
 ## Release History
+* **0.1.2** *2014-09-24* Better handling of capabilities list.
+* **0.1.1** *2014-09-24* Expose cucumber task.
 * **0.1.0** *2014-09-24* Matrix browser spec and Browserstack intertie.
 * **0.0.4** *2014-06-18* SELENIUM_BROWSER flag.
 * **0.0.3** *2014-04-24* Added `findAll` to world.
