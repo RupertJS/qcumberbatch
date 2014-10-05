@@ -1,6 +1,6 @@
 {
   "name": "qcumberbatch",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Integration wrapper between qcumber and webdriverjs.",
   "repository": {
     "type": "git",
