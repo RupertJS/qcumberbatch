@@ -4,9 +4,22 @@
 
 The approach taken here I'm calling 'Selenium Mappings Model'. [Read about it!][mapmodel]
 
+
+
 ## Getting Started
 
-This plugin requires Grunt `~0.4.0` for the
+For local testing, you will need [Firefox][ff] to test Firefox, [Chrome][chr] and the [Chrome Driver][chdrive] to test Chrome, and the [Selenium Standalone Server][sel_standalone] to test [Safari][saf], [IE][ie], or [Opera][op]. (The qcumberbatch cucumber grunt task works well with a standalone grunt task.)
+
+For [Browserstack](http://www.browserstack.com/) testing, you will need a Browserstack account with time on the [Automate][bs_automate] product.
+
+[ff]: https://getfirefox.com
+[chr]: https://getchrome.com
+[chdrive]: https://code.google.com/p/selenium/wiki/ChromeDriver
+[sel_standalone]: http://www.seleniumhq.org/download/
+[saf]: https://www.apple.com/safari/
+[ie]: http://windows.microsoft.com/en-us/internet-explorer/download-ie
+[o]: http://www.opera.com/
+[bs_automate]: https://www.browserstack.com/automate
 
 ## Cucumber task
 _Run this task with the `grunt cucumber` command._
@@ -71,3 +84,6 @@ These have the same meanings as their cucumberjs CLI counterparts.
 * **0.0.3** *2014-04-24* Added `findAll` to world.
 * **0.0.2** *2013-11-29* Documentation release.
 * **0.0.1** *2013-10-30* Initial release; some basic steps, and screenshot handing.
+
+
+[mapmodel]: http://davidsouther.com/#/posts/2014/01/27/cucumber-selenium-mappings-model/
