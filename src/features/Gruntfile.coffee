@@ -5,12 +5,17 @@ module.exports = (grunt)->
                 files:
                     src: ['src/features/integration/*']
                 options:
-                    tags: '~@ShouldFail'
+                    tags: ['~@ShouldFail', '~@ImageComparison']
             failing:
                 files:
                     src: ['src/features/integration/*']
                 options:
                     tags: '@ShouldFail'
+            images:
+                files:
+                    src: ['src/features/integration/*']
+                options:
+                    tags: '@ImageComparison'
 
             browserstack:
                 files:
