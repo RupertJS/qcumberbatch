@@ -26,6 +26,7 @@ module.exports = (grunt)->
         http.listen 3000
 
     grunt.loadTasks 'src/tasks'
+    grunt.loadTasks 'tasks'
 
     grunt.registerTask 'browserstack', ['serve', 'cucumber:browserstack']
     grunt.registerTask 'test', ['serve', 'integration']
