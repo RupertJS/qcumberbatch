@@ -17,6 +17,8 @@ module.exports = (grunt)->
 
             files = @filesSrc or []
 
+            return done() if files.length is 0
+
             argv = ['node', 'node_modules/.bin/cucumber-js']
             argv = argv.concat files unless files.length is 0
             argv = argv.concat ['-r', steps] if steps.length > 0
