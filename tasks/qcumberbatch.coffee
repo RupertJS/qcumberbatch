@@ -47,7 +47,7 @@ module.exports = (grunt)->
         next(yes)
 
     runCucumber = (argv, capabilities, callback)->
-        platform = "#{capabilities.browser} on on #{capabilities.os}"
+        platform = "#{capabilities.browser} on #{capabilities.os}"
         grunt.log.writeln "Running tests for #{platform}..."
         process.env.CONFIG = JSON.stringify capabilities
         cucumber.Cli(argv).run (succeeded)->
