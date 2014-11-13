@@ -20,8 +20,12 @@ module.exports = (grunt)->
             argv = ['node', 'node_modules/.bin/cucumber-js']
             argv = argv.concat files unless files.length is 0
             argv = argv.concat ['-r', steps] if steps.length > 0
-            argv = argv.concat ['-t', tags] if tags.length > 0
             argv = argv.concat ['-f', format] if format.length > 0
+            if typeof tags is 'string'
+                argv = argv.concat ['-t', tags] if tags.length > 0
+            else
+                for tag in tags
+                    argv = argv.concat ['-t', tag]
 
             grunt.verbose.writeln 'Command line ready'
             grunt.verbose.writeln argv
