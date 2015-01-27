@@ -24,6 +24,8 @@ module.exports = class World
         if @driver.manage?
             @driver.manage().timeouts().setScriptTimeout config.timeout or 10000
 
+        @By = By
+
     _buildCapabilities: (config)->
         capabilities = config
         if config.browserstack

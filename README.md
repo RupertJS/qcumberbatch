@@ -77,6 +77,9 @@ Default: `""`
 These have the same meanings as their cucumberjs CLI counterparts.
 
 ## Release History
+
+* **0.2.3** *2015-01-27* Expose `selenium-webdriver.By` on world.
+* **0.2.2**
 * **0.1.2** *2014-09-24* Better handling of capabilities list.
 * **0.1.1** *2014-09-24* Expose cucumber task.
 * **0.1.0** *2014-09-24* Matrix browser spec and Browserstack intertie.
